@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="wizard-golf"
+run/main_scene="uid://bsuapxkln4wpp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dotnet]
 
@@ -22,3 +27,11 @@ project/assembly_name="wizard-golf"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
