@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://m2m8ry1lwfi0"]
+[gd_scene load_steps=7 format=3 uid="uid://m2m8ry1lwfi0"]
 
 [ext_resource type="Script" uid="uid://dhic38jjp4h8j" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_gmlin"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_lvxji"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8afob"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
+
+[sub_resource type="Resource" id="Resource_p47bc"]
+script = ExtResource("3_lvxji")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_8afob")
@@ -16,4 +24,14 @@ mesh = SubResource("CapsuleMesh_8afob")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_x7p2l")
-disabled = true
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 0.893371, 0.449319, 0, -0.449319, 0.893371, 0, 2.69591, 5.36023)
+script = ExtResource("2_gmlin")
+follow_mode = 6
+follow_target = NodePath("..")
+tween_resource = SubResource("Resource_p47bc")
+follow_distance = 6.0
+vertical_rotation_offset = 0.466003
+spring_length = 6.0
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
