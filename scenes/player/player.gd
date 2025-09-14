@@ -9,9 +9,6 @@ const mouse_sensitivity = 0.3
 
 @onready var pCam: PhantomCamera3D = $PhantomCamera3D
 
-func _ready() -> void:
-	print("ready")
-
 func _input(event) -> void:
 	if event is InputEventMouseMotion:
 		var yaw = -event.relative.x * mouse_sensitivity
@@ -20,7 +17,6 @@ func _input(event) -> void:
 		var new_pitch = clamp(current_rotation.x + pitch, -60, -20)
 		var new_yaw = current_rotation.y + yaw
 		pCam.set_third_person_rotation_degrees(Vector3(new_pitch, new_yaw, 0))
-	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -43,6 +39,5 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 		velocity.z = move_toward(velocity.z, 0, DECELERATION)
-	
-	
+
 	move_and_slide()

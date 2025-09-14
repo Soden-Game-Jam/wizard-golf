@@ -35,13 +35,13 @@ size = Vector3(40, 0.5, 40)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Floor"]
 shape = SubResource("BoxShape3D_iyx0m")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment"]
+[node name="Wall" type="StaticBody3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49854, 12.3683)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Wall"]
 shape = SubResource("BoxShape3D_bl13t")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Environment/StaticBody3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment/Wall"]
 size = Vector3(20, 5, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
