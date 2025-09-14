@@ -6,6 +6,9 @@ func _init() -> void:
 	linear_damp = .5
 	angular_damp = .5
 
+func _ready() -> void:
+	add_to_group("ball")
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_SPACE: 
