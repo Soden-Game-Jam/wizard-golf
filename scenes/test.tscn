@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsuapxkln4wpp"]
+[gd_scene load_steps=7 format=3 uid="uid://bsuapxkln4wpp"]
 
 [ext_resource type="PackedScene" uid="uid://m2m8ry1lwfi0" path="res://scenes/player/player.tscn" id="1_errlg"]
+[ext_resource type="PackedScene" uid="uid://yo0dt7n4nic5" path="res://scenes/ball/ball.tscn" id="4_j5jx5"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_lpvoh"]
 
 [sub_resource type="Environment" id="Environment_bl13t"]
@@ -25,9 +26,13 @@ environment = SubResource("Environment_bl13t")
 [node name="Player" parent="Entities" instance=ExtResource("1_errlg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
+[node name="Ball" parent="Entities" instance=ExtResource("4_j5jx5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.31062, -7.04626)
+
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="Floor" type="StaticBody3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0253239, 0.0856419, 0.433578)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Environment/Floor"]
 size = Vector3(40, 0.5, 40)
